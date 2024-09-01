@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frames Example</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .top-frame {
+            flex: 1;
+            width: 100%;
+        }
+        .bottom-frame {
+            display: flex;
+            flex: 2;
+            width: 100%;
+        }
+        .left-frame {
+            flex: 0 0 30%;
+        }
+        .right-frame {
+            flex: 0 0 70%;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        nav {
+            background-color: #f4f4f4;
+            padding: 10px;
+        }
+        a {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-frame">
+            <nav>
+                <a href="https://www.example.com" target="main-frame">Open Example in Main Frame</a>
+                <a href="https://www.example.com" target="_blank">Open Example in New Tab</a>
+            </nav>
+            <iframe name="main-frame" src="about:blank" class="top-frame"></iframe>
+        </div>
+        <div class="bottom-frame">
+            <div class="left-frame">
+                <iframe src="https://www.example.com" frameborder="0"></iframe>
+            </div>
+            <div class="right-frame">
+                <iframe src="https://www.example.com" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
