@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyramid Generator</title>
+    <style>
+        pre {
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pyramid Generator</h1>
+    <label for="levels">Enter number of levels:</label>
+    <input type="number" id="levels" placeholder="Number of levels" min="1">
+    <button onclick="generatePyramids()">Generate Pyramids</button>
+
+    <h2>Number Pyramid:</h2>
+    <pre id="numberPyramid"></pre>
+
+    <h2>Star Pyramid:</h2>
+    <pre id="starPyramid"></pre>
+
+    <h2>Inverted Star Pyramid:</h2>
+    <pre id="invertedStarPyramid"></pre>
+
+    <script>
+        function generatePyramids() {
+            const levels = parseInt(document.getElementById('levels').value);
+            if (isNaN(levels) || levels < 1) {
+                alert("Please enter a valid number of levels.");
+                return;
+            }
+
+            document.getElementById('numberPyramid').innerText = generateNumberPyramid(levels);
+            document.getElementById('starPyramid').innerText = generateStarPyramid(levels);
+            document.getElementById('invertedStarPyramid').innerText = generateInvertedStarPyramid(levels);
+        }
+
+        function generateNumberPyramid(levels) {
+            let result = '';
+            for (let i = 1; i <= levels; i++) {
+                const spaces = ' '.repeat(levels - i);
+                const numbers = Array.from({ length: i }, (_, index) => index + 1).join(' ');
+                result += spaces + numbers + '\n';
+            }
+            return result;
+        }
+
+        function generateStarPyramid(levels) {
+            let result = '';
+            for (let i = 1; i <= levels; i++) {
+                const spaces = ' '.repeat(levels - i);
+                result += spaces + '*'.repeat(2 * i - 1) + '\n';
+            }
+            return result;
+        }
+
+        function generateInvertedStarPyramid(levels) {
+            let result = '';
+            for (let i = levels; i >= 1; i--) {
+                const spaces = ' '.repeat(levels - i);
+                result += spaces + '*'.repeat(2 * i - 1) + '\n';
+            }
+            return result;
+        }
+    </script>
+</body>
+</html>

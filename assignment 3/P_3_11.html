@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digit Sum Calculator</title>
+    <style>
+        .textbox {
+            margin: 5px;
+            padding: 10px;
+            width: 200px;
+        }
+        .button {
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Digit Sum Calculator</h2>
+    <input type="text" id="number" class="textbox" placeholder="Enter a number">
+    <button onclick="calculateDigitSum()" class="button">Calculate Sum</button>
+    <h3 id="result"></h3>
+
+    <script>
+        function calculateDigitSum() {
+            let number = document.getElementById('number').value;
+            let digits = number.split('');
+            let sum = 0;
+            let expression = "";
+
+            for (var i = 0; i < digits.length; i++) {
+                sum += parseInt(digits[i]);
+                expression += digits[i];
+                if (i < digits.length - 1) {
+                    expression += " + ";
+                }
+            }
+
+            document.getElementById('result').innerText = expression + " = " + sum;
+        }
+    </script>
+</body>
+</html>

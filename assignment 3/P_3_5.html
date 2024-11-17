@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result Checker</title>
+    <style>
+        .textbox {
+            margin: 5px;
+            padding: 10px;
+        }
+        .button {
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Result Checker</h2>
+    <input type="text" id="subject1" class="textbox" placeholder="Enter marks for Subject 1">
+    <input type="text" id="subject2" class="textbox" placeholder="Enter marks for Subject 2">
+    <input type="text" id="subject3" class="textbox" placeholder="Enter marks for Subject 3">
+    <button onclick="checkResult()" class="button">Check Result</button>
+    <h3 id="result"></h3>
+
+    <script>
+        function checkResult() {
+            let marks1 = parseFloat(document.getElementById('subject1').value);
+            let marks2 = parseFloat(document.getElementById('subject2').value);
+            let marks3 = parseFloat(document.getElementById('subject3').value);
+            let totalMarks = marks1 + marks2 + marks3;
+            let result;
+
+            if (isNaN(marks1) || isNaN(marks2) || isNaN(marks3)) {
+                result = "Please enter valid marks for all subjects.";
+            } else {
+                if (totalMarks <= 50) {
+                    result = "Fail";
+                } else if (totalMarks <= 100) {
+                    result = "Pass";
+                } else if (totalMarks <= 150) {
+                    result = "First Class";
+                } else {
+                    result = "Invalid total marks.";
+                }
+
+                result = "Total Marks: " + totalMarks + " - " + result;
+            }
+
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+</body>
+</html>

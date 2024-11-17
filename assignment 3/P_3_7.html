@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Feedback</title>
+    <style>
+        .textbox {
+            margin: 5px;
+            padding: 10px;
+            width: 200px;
+        }
+        .button {
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Student Feedback</h2>
+    <input type="text" id="studentNo" class="textbox" placeholder="Enter student number">
+    <button onclick="displayFeedback()" class="button">Get Feedback</button>
+    <h3 id="result"></h3>
+
+    <script>
+        function displayFeedback() {
+            let studentNo = document.getElementById('studentNo').value;
+            let feedback;
+
+            switch (studentNo) {
+                case "1":
+                    feedback = "Good";
+                    break;
+                case "2":
+                    feedback = "Try best in next exam";
+                    break;
+                case "3":
+                    feedback = "Need to improve";
+                    break;
+                default:
+                    feedback = "Invalid student number.";
+            }
+
+            document.getElementById('result').innerText = feedback;
+        }
+    </script>
+</body>
+</html>

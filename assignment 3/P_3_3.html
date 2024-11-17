@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Checker</title>
+    <style>
+        .textbox {
+            margin: 5px;
+            padding: 10px;
+        }
+        .button {
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Odd, Even, Positive, Negative Checker</h2>
+    <input type="text" id="number" class="textbox" placeholder="Enter a number">
+    <button onclick="checkNumber()" class="button">Check</button>
+    <h3 id="result"></h3>
+
+    <script>
+        function checkNumber() {
+            let number = parseFloat(document.getElementById('number').value);
+            let result = "";
+
+            if (isNaN(number)) {
+                result = "Please enter a valid number.";
+            } else {
+                if (number % 2 === 0) {
+                    result += number + " is even. ";
+                } else {
+                    result += number + " is odd. ";
+                }
+
+                if (number > 0) {
+                    result += number + " is positive.";
+                } else if (number < 0) {
+                    result += number + " is negative.";
+                } else {
+                    result += number + " is zero.";
+                }
+            }
+
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Changer</title>
+    <style>
+        .textbox {
+            margin: 5px;
+            padding: 10px;
+            width: 200px;
+        }
+        .button {
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Color Changer</h2>
+    <input type="text" id="colorInput" class="textbox" placeholder="Enter a color name">
+    <button onclick="changeColor()" class="button">Change Color</button>
+
+    <script>
+        function changeColor() {
+            let colorName = document.getElementById('colorInput').value;
+            document.getElementById('colorInput').style.backgroundColor = colorName;
+        }
+    </script>
+</body>
+</html>

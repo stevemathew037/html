@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Max and Min Number Checker</title>
+    <style>
+        .textbox {
+            margin: 5px;
+            padding: 10px;
+        }
+        .button {
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Maximum and Minimum Number Checker</h2>
+    <input type="text" id="numbers" class="textbox" placeholder="Enter numbers separated by commas">
+    <button onclick="findMaxMin()" class="button">Check</button>
+    <h3>Result: <span id="result"></span></h3>
+
+    <script>
+        function findMaxMin() {
+            let input = document.getElementById('numbers').value;
+            let numberArray = input.split(',').map(Number);
+            let maxNumber = Math.max.apply(null, numberArray);
+            let minNumber = Math.min.apply(null, numberArray);
+            let result;
+
+            if (numberArray.length == 0 || numberArray.some(isNaN)) {
+                result = "Please enter valid numbers.";
+            } else {
+                result = "Maximum number is: " + maxNumber + " and Minimum number is: " + minNumber;
+            }
+
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+</body>
+</html>
